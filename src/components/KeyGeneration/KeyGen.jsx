@@ -3,7 +3,7 @@ import "./keygen.css";
 import Button from 'react-bootstrap/Button';
 
 function KeyGen(props) {
-  return  <button type="button" class="btn btn-primary btn-rounded">Key Generation</button>;
+  return <center> <button type="button" class="btn btn-primary btn-rounded">Key Generation</button></center>;
 }
 
 export default KeyGen;
