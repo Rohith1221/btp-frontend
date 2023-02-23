@@ -5,6 +5,7 @@ import KeyGen from "./components/KeyGeneration/KeyGen";
 import Upload from "./components/Upload/Upload";
 import { Download } from "./components/Download/Download";
 import All from "./components/All/All";
+import ReactDOM from 'react-dom';
 
 function App() {
   return (
@@ -21,5 +22,5 @@ function App() {
     </div>
   );
 }
-
+ 
 export default App;
