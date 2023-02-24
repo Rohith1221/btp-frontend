@@ -1,0 +1,9 @@
+.cont-download {
+  margin-bottom: 3em;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+}
+.cont-download form {
+  padding: 10px 5px;
+  transition: 0.3s ease-in-out;
+}

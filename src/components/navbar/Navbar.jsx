@@ -5,28 +5,20 @@ function Navbar(props) {
   return (
     <div className="navbar-cont">
       <div className="navbar-left">
-        <div>
-          <Link to="/all" className="link-txt">
-            Secure Share
-          </Link>
-        </div>
+        <Link to="/all" className="link-txt">
+          <div>Secure Share</div>
+        </Link>
       </div>
       <div className="navbar-right">
-        <div>
-          <Link to="/keygen" className="link-txt">
-            Key Generation
-          </Link>
-        </div>
-        <div>
-          <Link to="/upload" className="link-txt">
-            Upload
-          </Link>
-        </div>
-        <div>
-          <Link to="/download" className="link-txt">
-            Download
-          </Link>
-        </div>
+        <Link to="/keygen" className="link-txt">
+          <div>Key Generation</div>
+        </Link>
+        <Link to="/upload" className="link-txt">
+          <div>Upload</div>
+        </Link>
+        <Link to="/download" className="link-txt">
+          <div>Download</div>
+        </Link>
       </div>
     </div>
   );
