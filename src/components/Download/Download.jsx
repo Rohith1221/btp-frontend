@@ -11,7 +11,7 @@ export const Download = () => {
           <Form.Control type="text" placeholder="Enter IPFS Hash" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="prikey">
-          <Form.Label>Public Key</Form.Label>
+          <Form.Label>Private Key</Form.Label>
           <Form.Control type="password" placeholder="Enter Private Key" />
         </Form.Group>
         <Button variant="primary" type="submit">
