@@ -3,7 +3,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import "./download.css";
+var fileDownload  = require("js-file-download");
+
+
 export const Download = () => {
+  
   const authToken = localStorage.getItem("accessToken");
 
   const [ipfsHash, setipfsHash] = useState("");
@@ -27,6 +31,7 @@ export const Download = () => {
           ipfs_hash: ipfsHash,
         },
         {
+          responseType:'blob',
           headers: {
             Authorization: `Bearer ${authToken}`, // include the token in the headers
           },
@@ -34,6 +39,7 @@ export const Download = () => {
       )
       .then((response) => {
         console.log(response.data);
+        fileDownload(response.data ,"filename.pdf");
       })
       .catch((error) => {
         console.log("ERR: ", error);

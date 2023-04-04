@@ -13,11 +13,11 @@ export const Logout = () => {
       })
       .then((res) => {
         console.log(res);
-        localStorage.clear();
       })
       .catch((err) => {
         console.log(err);
       });
+      localStorage.clear();
       axios.defaults.headers.common["Authorization"] = null;
       window.location.href = "/login";
   }, []);
