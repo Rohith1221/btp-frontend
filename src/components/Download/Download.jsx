@@ -3,37 +3,37 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import "./download.css";
+var fileDownload = require('js-file-download');
+
 export const Download = () => {
   const authToken = localStorage.getItem("accessToken");
-
   const [ipfsHash, setipfsHash] = useState("");
   const [prvtKey, setprvtKey] = useState("");
-
   const handleIPFS = (e) => {
     setipfsHash(e.target.value);
   };
 
   const handlePrvtKey = (e) => {
     setprvtKey(e.target.value);
-  };
-
+  }
   const submit = (e) => {
     e.preventDefault();
     axios
       .post(
-        "https://dfssuiab-backend-production.up.railway.app/app/download/",
+        "http://127.0.0.1:8000/app/download/",
         {
           private_key: prvtKey,
           ipfs_hash: ipfsHash,
         },
         {
+          responseType:'blob',
           headers: {
             Authorization: `Bearer ${authToken}`, // include the token in the headers
           },
         }
       )
       .then((response) => {
-        console.log(response.data);
+        fileDownload(response.data, response.headers.file_name);
       })
       .catch((error) => {
         console.log("ERR: ", error);
