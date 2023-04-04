@@ -6,30 +6,27 @@ export const Home = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("access_token") === null) {
+    if (localStorage.getItem("accessToken") === null) {
       window.location.href = "/login";
     } else {
-      (async () => {
-        let data;
-        try {
-          data = await axios.get(
-            "https://dfssuiab-backend-production.up.railway.app/app/key-generation/",
-            {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            },
-            (req, res) => {
-              console.log(req.headers.authorization); // log the Authorization header
-            }
-          );
-          console.log(data);
+      const authToken = localStorage.getItem("accessToken");
 
-          setMessage(data.message);
-        } catch (e) {
-          console.log("not auth");
-        }
-      })();
+      // make a GET request that uses the token
+      axios
+        .get(
+          "https://dfssuiab-backend-production.up.railway.app/app/key-generation/",
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`, // include the token in the headers
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   }, []);
 

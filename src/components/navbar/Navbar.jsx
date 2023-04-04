@@ -5,17 +5,20 @@ import "../navbar/navbar.css";
 function Navbar(props) {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem("access_token") !== null) {
+    if (localStorage.getItem("accessToken") !== null) {
       setIsAuth(true);
     }
+    console.log("isAUTH: ", isAuth);
   }, [isAuth]);
 
   return (
     <div className="navbar-cont">
       <div className="navbar-left">
-        {/*<Link to="/all" className="link-txt">
-          <div>Secure Share</div>
-  </Link> */}
+        {isAuth ? (
+          <Link to="/all" className="link-txt">
+            <div>Secure Share</div>
+          </Link>
+        ) : null}
       </div>
       <div className="navbar-right">
         {/*<Link to="/keygen" className="link-txt">

@@ -9,6 +9,7 @@ import ReactDOM from "react-dom";
 import { Login } from "./components/Login/Login";
 import { Home } from "./components/Home/Home";
 import { Logout } from "./components/Logout/Logout";
+import Register from "./components/Register/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/login" exact element={<Login />} />
+          <Route path="/register" exact element={<Register />} />
           <Route path="/logout" exact element={<Logout />} />
           <Route path="/all" exact element={<All />} />
           <Route path="/keygen" exact element={<KeyGen />} />

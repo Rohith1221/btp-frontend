@@ -1,46 +1,22 @@
+import React from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const Login = () => {
+function Register(props) {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
-
   const submit = async (e) => {
-    // e.preventDefault();
-
-    // const user = {
-    //   email: email,
-    //   password: password,
-    // };
-    // let data;
-    // try {
-    //   data = await axios.post(
-    //     "https://dfssuiab-backend-production.up.railway.app/app/registration/",
-    //     user,
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     },
-    //     { withCredentials: true }
-    //   );
-    // } catch (err) {
-    //   console.log("ERROR: ", err);
-    // }
-    // let token = data.data.data.access_token;
-    // console.log(`Bearer ${token}`);
-    // console.log("token is :", data.data.data.access_token);
-    // localStorage.clear();
-    // localStorage.setItem("access_token", token);
-    // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     e.preventDefault();
     await axios
-      .post("https://dfssuiab-backend-production.up.railway.app/app/login/", {
-        email,
-        password,
-      })
+      .post(
+        "https://dfssuiab-backend-production.up.railway.app/app/registration/",
+        {
+          email,
+          password,
+        }
+      )
       .then((response) => {
         console.log(response.data);
         const { access_token } = response.data.data;
@@ -49,18 +25,17 @@ export const Login = () => {
         axios.defaults.headers.common[
           "Authorization"
         ] = `Bearer ${access_token}`;
+        window.location.href = "/";
       })
       .catch((error) => {
         console.log("ERR: ", error);
       });
-    window.location.href = "/";
   };
-
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={submit}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
+          <h3 className="Auth-form-title">Register</h3>
           <div className="form-group mt-3">
             <label>email</label>
             <input
@@ -85,9 +60,7 @@ export const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div>
-            <Link to="/register">Register</Link>
-          </div>
+
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Submit
@@ -97,4 +70,6 @@ export const Login = () => {
       </form>
     </div>
   );
-};
+}
+
+export default Register;

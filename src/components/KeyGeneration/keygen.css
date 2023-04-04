@@ -1,6 +1,19 @@
- 
- button{
-   text-align: center;
+button {
+  text-align: center;
   margin-top: 5rem;
-   
- }
+}
+
+.keygen_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pubkey_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
