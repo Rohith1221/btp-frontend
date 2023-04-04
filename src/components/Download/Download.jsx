@@ -6,6 +6,7 @@ import "./download.css";
 var fileDownload = require('js-file-download');
 
 export const Download = () => {
+  
   const authToken = localStorage.getItem("accessToken");
   const [ipfsHash, setipfsHash] = useState("");
   const [prvtKey, setprvtKey] = useState("");
@@ -20,7 +21,7 @@ export const Download = () => {
     e.preventDefault();
     axios
       .post(
-        "http://127.0.0.1:8000/app/download/",
+        "https://dfssuiab-backend-production.up.railway.app/app/download/",
         {
           private_key: prvtKey,
           ipfs_hash: ipfsHash,
