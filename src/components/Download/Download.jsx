@@ -38,7 +38,7 @@ export const Download = () => {
         }
       )
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
         fileDownload(response.data ,"filename.pdf");
       })
       .catch((error) => {

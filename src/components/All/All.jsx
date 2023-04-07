@@ -3,6 +3,8 @@ import { Download } from "../Download/Download";
 import KeyGen from "../KeyGeneration/KeyGen";
 import Upload from "../Upload/Upload";
 import "./All.css";
+import MetamaskConnect from "../Blockchain/MetamaskConnect";
+import SmartContract from "../SmartContract/SmartContract";
 
 function All(props) {
   return (
@@ -11,6 +13,10 @@ function All(props) {
       <KeyGen />
       <h3>Upload</h3>
       <Upload />
+      <h3>blockChain</h3>
+      <MetamaskConnect />
+      <h3>smart contract</h3>
+      <SmartContract />
       <h3>Download</h3>
       <Download />
     </div>

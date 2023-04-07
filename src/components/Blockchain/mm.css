@@ -1,0 +1,11 @@
+.metamask_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.metamask_cont Button {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
