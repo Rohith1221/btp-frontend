@@ -30,11 +30,11 @@ function Navbar(props) {
         <Link to="/download" className="link-txt">
           <div>Download</div>
   </Link> */}
-        {isAuth ? (
+        {/*{isAuth ? (
           <Link to="/">
             <div>Home</div>
           </Link>
-        ) : null}
+        ) : null} */}
         {isAuth ? (
           <Link to="/logout">
             <div>Logout</div>

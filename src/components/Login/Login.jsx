@@ -53,7 +53,7 @@ export const Login = () => {
       .catch((error) => {
         console.log("ERR: ", error);
       });
-    window.location.href = "/";
+    window.location.href = "/all";
   };
 
   return (
