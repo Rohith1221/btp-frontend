@@ -7,10 +7,10 @@ var fileDownload = require("js-file-download");
 
 export const Download = () => {
   const authToken = localStorage.getItem("accessToken");
-  const [ipfsHash, setipfsHash] = useState("");
+  const [txHash, settxHash] = useState("");
   const [prvtKey, setprvtKey] = useState("");
   const handleIPFS = (e) => {
-    setipfsHash(e.target.value);
+    settxHash(e.target.value);
   };
 
   const handlePrvtKey = (e) => {
@@ -23,7 +23,7 @@ export const Download = () => {
         "https://dfssuiab-backend-production.up.railway.app/app/download/",
         {
           private_key: prvtKey,
-          ipfs_hash: ipfsHash,
+          tx_hash: txHash,
         },
         {
           responseType: "blob",
@@ -43,11 +43,11 @@ export const Download = () => {
   return (
     <div class="container cont-download">
       <Form onSubmit={submit}>
-        <Form.Group className="mb-3" controlId="ipfshash">
-          <Form.Label>IPFS Hash</Form.Label>
+        <Form.Group className="mb-3" controlId="txhash">
+          <Form.Label>Transaction Hash</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter IPFS Hash"
+            placeholder="Enter Transaction Hash"
             onChange={handleIPFS}
           />
         </Form.Group>
