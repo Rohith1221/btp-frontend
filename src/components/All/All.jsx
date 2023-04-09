@@ -11,10 +11,10 @@ function All(props) {
     <div>
       <h3>Key Generation</h3>
       <KeyGen />
-      <h3>Upload</h3>
-      <Upload />
       <h3>blockChain</h3>
       <MetamaskConnect />
+      <h3>Upload</h3>
+      <Upload />
       <h3>smart contract</h3>
       <ContractComp />
       <h3>Download</h3>
