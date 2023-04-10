@@ -3,7 +3,9 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import "../../App.css"
 function Register(props) {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +34,7 @@ function Register(props) {
       });
   };
   return (
+    <div class="container" >
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={submit}>
         <div className="Auth-form-content">
@@ -61,13 +64,14 @@ function Register(props) {
             />
           </div>
 
-          <div className="d-grid gap-2 mt-3">
+          <div className="center">
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }
