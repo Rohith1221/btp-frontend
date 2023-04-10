@@ -9,7 +9,7 @@ const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
 function App() {
   const [ipfsHash, setIpfsHash] = useState("");
-  const CONTRACT_ADDRESS = "0x08B2C6DBc543654b4be3884f56ADdB092399eEf9";
+   
   // const CONT_ADD = process.env.REACT_APP_CONTRACT_ADD;
   // const CONTRACT_ADDRESS = web3.utils.toHex(CONT_ADD);
 
@@ -19,7 +19,7 @@ function App() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
-        CONTRACT_ADDRESS,
+        process.env.REACT_APP_CONTRACT_ADDRESS,
         CONTRACT_ABI,
         signer
       );

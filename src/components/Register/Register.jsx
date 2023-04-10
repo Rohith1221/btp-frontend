@@ -9,11 +9,13 @@ import "../../App.css"
 function Register(props) {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
+  const domain = process.env.REACT_APP_DOMAIN;
+    const path = "app/registration/";
   const submit = async (e) => {
     e.preventDefault();
     await axios
       .post(
-        "https://dfssuiab-backend-production.up.railway.app/app/registration/",
+        `${domain}${path}`,
         {
           email,
           password,

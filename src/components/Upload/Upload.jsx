@@ -41,10 +41,11 @@ function Upload(props) {
     formData.append("file_name", filename);
 
     console.log(FormData);
-
+    const domain = process.env.REACT_APP_DOMAIN;
+    const path = "app/upload/";
     axios
       .post(
-        "https://dfssuiab-backend-production.up.railway.app/app/upload/",
+        `${domain}${path}`,
         formData,
         {
           headers: {

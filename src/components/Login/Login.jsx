@@ -43,9 +43,10 @@ export const Login = () => {
 
     const domain = process.env.REACT_APP_DOMAIN;
     const path = "app/login/";
-
+     
     await axios
-      .post(`https://dfssuiab-backend-production.up.railway.app/app/login/`, {
+      .post(`${domain}${path}`, {
+    
         email,
         password,
       })

@@ -3,10 +3,12 @@ import axios from "axios";
 
 export const Logout = () => {
   const authToken = localStorage.getItem("accessToken");
+  const domain = process.env.REACT_APP_DOMAIN;
+  const path="app/logout/"
   console.log(authToken);
   useEffect(() => {
     axios
-      .post("https://dfssuiab-backend-production.up.railway.app/app/logout/", {
+      .post(`${domain}${path}`, {
         headers: {
           Authorization: `Bearer ${authToken}`, // include the token in the headers
         },
