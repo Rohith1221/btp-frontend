@@ -2,6 +2,10 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import "../../App.css"
+
 
 export const Login = () => {
   const [email, setemail] = useState("");
@@ -61,6 +65,7 @@ export const Login = () => {
   };
 
   return (
+    <div class="container">
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={submit}>
         <div className="Auth-form-content">
@@ -92,13 +97,14 @@ export const Login = () => {
           <div>
             <Link to="/register">Register</Link>
           </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+          <div class="center">
+            <button type="submit" className="btn btn-primary" >
               Submit
             </button>
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 };
