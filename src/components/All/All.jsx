@@ -4,7 +4,7 @@ import KeyGen from "../KeyGeneration/KeyGen";
 import Upload from "../Upload/Upload";
 import "./All.css";
 import MetamaskConnect from "../Blockchain/MetamaskConnect";
-import ContractComp from "../Contract/Contract";
+import ContractComp from "../Upload/Contract/Contract";
 
 function All(props) {
   return (
@@ -15,8 +15,6 @@ function All(props) {
       <MetamaskConnect />
       <h3>Upload</h3>
       <Upload />
-      <h3>smart contract</h3>
-      <ContractComp />
       <h3>Download</h3>
       <Download />
     </div>

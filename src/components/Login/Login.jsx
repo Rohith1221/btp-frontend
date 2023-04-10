@@ -36,8 +36,12 @@ export const Login = () => {
     // localStorage.setItem("access_token", token);
     // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     e.preventDefault();
+
+    const domain = process.env.REACT_APP_DOMAIN;
+    const path = "app/login/";
+
     await axios
-      .post("https://dfssuiab-backend-production.up.railway.app/app/login/", {
+      .post(`https://dfssuiab-backend-production.up.railway.app/app/login/`, {
         email,
         password,
       })

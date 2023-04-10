@@ -4,6 +4,14 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import "./upload.css";
 
+import Web3 from "web3";
+
+import * as ethers from "ethers";
+import "./ipfs.css";
+import CONTRACT_ABI from "./SimpleContract.json";
+
+const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+
 function Upload(props) {
   const authToken = localStorage.getItem("accessToken");
 
@@ -26,6 +34,7 @@ function Upload(props) {
 
   const submitForm = (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append("public_key", pubKey);
     formData.append("document", file);
@@ -49,11 +58,37 @@ function Upload(props) {
         console.log(response.data);
         setIPFShash(ipfs_hash);
         console.log(ipfs_hash);
+        document.getElementById("ipfsinput").value = ipfs_hash;
+        // document.getElementById("submitIPFShash").click();
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
+  const CONTRACT_ADDRESS = "0x08B2C6DBc543654b4be3884f56ADdB092399eEf9";
+  // const CONT_ADD = process.env.REACT_APP_CONTRACT_ADD;
+  // const CONTRACT_ADDRESS = web3.utils.toHex(CONT_ADD);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        CONTRACT_ADDRESS,
+        CONTRACT_ABI,
+        signer
+      );
+      const transaction = await contract.setIPFSHash(IPFShash);
+      await transaction.wait();
+      console.log("Transaction confirmed");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const handleFunc = () => {};
 
   return (
     <div class="container cont-upload">
@@ -76,7 +111,7 @@ function Upload(props) {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={handleFunc}>
           Submit
         </Button>
       </Form>
@@ -87,6 +122,27 @@ function Upload(props) {
           </p>
         )}
       </div>
+      <form onSubmit={handleSubmit} style={{ display: "" }}>
+        <label style={{ display: "none" }}>
+          IPFS Hash:
+          <input
+            type="text"
+            value={IPFShash}
+            id="ipfsinput"
+            onChange={(e) => setIPFShash(IPFShash)}
+            style={{ textAlign: "center", display: "none" }}
+          />
+        </label>
+        <Button
+          variant="primary"
+          type="submit"
+          value="Submit"
+          id="submitIPFShash"
+          style={{ marginTop: "-120px" }}
+        >
+          Send Transaction
+        </Button>
+      </form>
     </div>
   );
 }
