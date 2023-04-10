@@ -4,8 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "../../App.css"
-
+import "../../App.css";
 
 export const Login = () => {
   const [email, setemail] = useState("");
@@ -67,45 +66,45 @@ export const Login = () => {
 
   return (
     <div class="container">
-    <div className="Auth-form-container">
-      <form className="Auth-form" onSubmit={submit}>
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
-          <div className="form-group mt-3">
-            <label>email</label>
-            <input
-              className="form-control mt-1"
-              placeholder="Enter email"
-              name="email"
-              type="text"
-              value={email}
-              required
-              onChange={(e) => setemail(e.target.value)}
-            />
+      <div className="Auth-form-container">
+        <form className="Auth-form" onSubmit={submit}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="form-group mt-3">
+              <label>email</label>
+              <input
+                className="form-control mt-1"
+                placeholder="Enter email"
+                name="email"
+                type="text"
+                value={email}
+                required
+                onChange={(e) => setemail(e.target.value)}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                name="password"
+                type="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <Link to="/register">Register</Link>
+            </div>
+            <div class="center">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
           </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              className="form-control mt-1"
-              placeholder="Enter password"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div>
-            <Link to="/register">Register</Link>
-          </div>
-          <div class="center">
-            <button type="submit" className="btn btn-primary" >
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
     </div>
   );
 };

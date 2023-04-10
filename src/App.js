@@ -17,11 +17,11 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" exact element={<Home />} />
+          <Route path="/" exact element={<All />} />
+          <Route path="/all" exact element={<All />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/register" exact element={<Register />} />
           <Route path="/logout" exact element={<Logout />} />
-          <Route path="/all" exact element={<All />} />
           <Route path="/keygen" exact element={<KeyGen />} />
           <Route path="/upload" exact element={<Upload />} />
           <Route path="/download" exact element={<Download />} />
@@ -32,3 +32,5 @@ function App() {
 }
 
 export default App;
+
+// <Route path="/" exact element={<Home />} />
