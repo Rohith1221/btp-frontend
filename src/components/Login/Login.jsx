@@ -61,7 +61,10 @@ export const Login = () => {
   };
 
   return (
-    <div className="Auth-form-container">
+    <div
+      className="Auth-form-container container login_cont"
+      style={{ backgroundColor: "" }}
+    >
       <form className="Auth-form" onSubmit={submit}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
