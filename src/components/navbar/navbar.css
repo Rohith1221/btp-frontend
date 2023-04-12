@@ -8,16 +8,18 @@
   font-size: 14px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(227, 227, 227);
+  background-color: rgb(240, 99, 57);
   padding-bottom: 6px;
   align-items: center;
   box-shadow: 1px 3px 11px rgb(0, 0, 0, 0.3);
+   
 }
 
 .navbar-left {
   padding: 10px;
   font-weight: 600;
   margin-top: 5px;
+  color: white;
 }
 .navbar-left div {
   cursor: pointer;
@@ -44,14 +46,20 @@
 
 .navbar-right div:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
-  background-color: rgb(178, 178, 178);
+  background-color: white;
+  color: black;
 }
 .navbar-left div:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
-  background-color: rgb(178, 178, 178);
+  background-color: white;
+  color: black;
 }
 
 .link-txt {
   color: inherit;
   text-decoration: inherit;
+}
+.navbar-text{
+  color: white;
+  text-decoration: none;
 }

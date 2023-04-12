@@ -62,7 +62,7 @@ function KeyGen(props) {
           </p>
         )}
       </div>
-      <div className="">
+      <div className="prikey_div">
         {PrivateKey && (
           <p>
             <b>Private Key :</b> {PrivateKey}

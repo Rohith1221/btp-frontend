@@ -16,7 +16,7 @@ function Navbar(props) {
       <div className="navbar-left">
         {isAuth ? (
           <Link to="/all" className="link-txt">
-            <div>Secure Share</div>
+            <div className="navbar-text">Secure Share</div>
           </Link>
         ) : null}
       </div>
@@ -37,7 +37,7 @@ function Navbar(props) {
         ) : null} */}
         {isAuth ? (
           <Link to="/logout">
-            <div>Logout</div>
+            <div className="navbar-text">Logout</div>
           </Link>
         ) : (
           <Link to="/login">
